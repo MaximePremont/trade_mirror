@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+# trade for Epitech
+
+import Bot
+
+def main() :
+    bot = Bot.Bot()
+    bot.runLine()
+    return 0
+
+main()

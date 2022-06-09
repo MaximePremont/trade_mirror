@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+# trade test for Epitech
+
+import Bot
+import actions
+
+def main():
+    bot = Bot.Bot();
+    with open("test_data1") as file_in:
+        for line in file_in:
+            bot.sendLine(line)
+    bot.sendLine("action order 2000")
+    total = 0
+    for k in bot.stacks.keys():
+        if k == "USDT":
+            total += bot.stacks[k]
+        else:
+            total += actions.getCurrencyPrice(bot, "USDT", k) * bot.stacks[k]
+    if (total >= 1000):
+        return 1
+    return 0
+
+main()
